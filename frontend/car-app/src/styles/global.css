@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(to right, #00b4d8, #80e0e9);
+  color: #333;
+  background-size: cover;
+  background-attachment: fixed;
+  animation: fadeIn 2s ease-in-out;
+}
+
+h1, h2 {
+  color: #ffffff;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #f3f4f6;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: #1d4ed8;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+}
+
+input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #1d4ed8;
+  outline: none;
+}
+
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(20px);
+  animation: slideUp 1s ease-out;
+}
+
+.container:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+  font-size: 3rem;
+  color: #ffffff;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.icon:hover {
+  color: #9333ea;
+  transform: rotate(15deg);
+}
+
+.navbar {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 15px 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar a {
+  color: white;
+  margin-right: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #f3f4f6;
+}
+
+.footer {
+  background-color: #111827;
+  color: #f3f4f6;
+  padding: 40px 0;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-section p {
+    font-size: 1.1rem;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  .navbar {
+    padding: 10px 20px;
+  }
+}

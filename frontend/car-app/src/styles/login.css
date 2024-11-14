@@ -1,0 +1,13 @@
+.login-container {
+  height: 95vh;
+  padding: 20px;
+  margin-top: 80px; 
+  background: linear-gradient(to right, #a1c4fd, #c2e9fb); 
+}
+
+.login-box {
+  max-width: 400px;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}

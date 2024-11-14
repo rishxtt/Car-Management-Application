@@ -1,0 +1,13 @@
+.product-creation-container {
+  height: 105vh; /* Full viewport height */
+  padding: 1px;
+  margin-top: 37px;
+  background: linear-gradient(to right, #a1c4fd, #c2e9fb); /* Light blue gradient background */
+}
+
+.row {
+  background: #ffffff; /* White background for content */
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
