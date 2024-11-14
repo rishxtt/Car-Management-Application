@@ -7,12 +7,56 @@ const ProductCreationPage = () => {
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState("");
   const [images, setImages] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleFileChange = (e) => {
     setImages([...e.target.files]);
   };
 
-  const handleCreateProduct = () => {
+  const handleCreateProduct = async () => {
+    if (!title || !description || !tags || images.length === 0) {
+      alert("Please fill in all fields and upload at least one image.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("tags", tags);
+    for (let i = 0; i < images.length; i++) {
+      formData.append("images", images[i]);
+    }
+
+    try {
+      const response = await fetch(
+        "https://car-management-application-backend.onrender.com/api/cars",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`, // Assuming token is stored in localStorage
+          },
+          body: formData,
+        }
+      );
+
+      if (response.ok) {
+        alert("Car created successfully!");
+        setTitle("");
+        setDescription("");
+        setTags("");
+        setImages([]);
+      } else {
+        const data = await response.json();
+        alert(data.message || "Failed to create car.");
+      }
+    } catch (error) {
+      console.error("Error creating car:", error);
+      alert("An error occurred while creating the car. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -67,8 +111,9 @@ const ProductCreationPage = () => {
               type="button"
               className="btn btn-primary btn-lg w-100"
               onClick={handleCreateProduct}
+              disabled={isSubmitting}
             >
-              Create
+              {isSubmitting ? "Creating..." : "Create"}
             </button>
           </form>
         </div>

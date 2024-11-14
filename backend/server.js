@@ -1,10 +1,23 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const cors = require("cors"); 
 
 dotenv.config();
 
 const app = express();
+
+const allowedOrigins = [
+  "http://localhost:3000", 
+  "https://your-frontend-production-url.com", 
+];
+
+app.use(cors({
+  origin: allowedOrigins, 
+  methods: ["GET", "POST", "PUT", "DELETE"], 
+  credentials: true, 
+}));
+
 app.use(express.json());
 
 mongoose
